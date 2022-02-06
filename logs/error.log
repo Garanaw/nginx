@@ -1,0 +1,3 @@
+2022/02/06 16:29:58 [notice] 52#52: signal process started
+2022/02/06 16:33:27 [emerg] 1#1: unknown directive "this_will" in /etc/nginx/nginx.conf:14
+2022/02/06 16:33:30 [emerg] 1#1: unknown directive "this_will" in /etc/nginx/nginx.conf:14
