@@ -34,19 +34,21 @@ case "$COMMAND" in
         docker-compose exec "$@"
         ;;
     "enable")
-        FILE="$NGINX_CONF_PATH/sites-available/$1"
+        FILENAME="$1.conf"
+        FILE="$NGINX_SITES_AVAILABLE$FILENAME"
         if [ ! -x "$FILE" ]; then
-            echo "File $1 not found"
+            echo "File $FILE not found"
             exit 1
         fi
 
-        ln -s "$FILE" "$NGINX_CONF_PATH/sites-enabled/$1"
+        ln -s "$FILE" "$NGINX_SITES_ENABLED$FILENAME"
         docker-compose exec nginx nginx -s reload
         ;;
     "disable")
-        FILE="$NGINX_CONF_PATH/sites-enabled/$1"
+        FILENAME="$1.conf"
+        FILE="$NGINX_SITES_ENABLED$FILENAME"
         if [ ! -x "$FILE" ]; then
-            echo "File $1 not found"
+            echo "File $FILE not found"
             exit 1
         fi
 
